@@ -3,10 +3,10 @@
     "compartmentId": "ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka",
     "displayName": "mkSubnet",
     "availabilityDomain": "ZwJq:US-ASHBURN-AD-1",
-    "routeTableId": "ocid1.routetable.oc1.iad.aaaaaaaaq6pbwnf4cd4txc3zfbt242hevfl3zle3j2ueem2pgzpcpapaft5a",
+    "routeTableId": "ocid1.routetable.oc1.iad.aaaaaaaaattyo6m4rpbhle5rpfql3cptyh6kxxnxrez7gh2zxqekjbism3sa",
     "securityListIds": [
-        "ocid1.securitylist.oc1.iad.aaaaaaaalsox7fw32dfty2ya6qq2so7ytne4z3z3erxg6lfv6k2ix3hrcxqq"
+        "ocid1.securitylist.oc1.iad.aaaaaaaahqorzejmy6axsq6w2bbpgkrdzepslawllean7dzocurkp5t5vh2q"
     ],
-    "dhcpOptionsId": "ocid1.dhcpoptions.oc1.iad.aaaaaaaac7pk726776s3nrsihv2ahjdljxpqy2uqovcjmjaof3ro34lgcf5q",
-    "vcnId": "ocid1.vcn.oc1.iad.amaaaaaada5axoianqz4xrbipf5vfgxrczjrxhxjgywbalv32qowxgmr5w6a"
+    "dhcpOptionsId": "ocid1.dhcpoptions.oc1.iad.aaaaaaaacugrempxbffn5htngl4om2ngflgigzh7wp5o7s5w7gimurvpsgea",
+    "vcnId": "ocid1.vcn.oc1.iad.amaaaaaada5axoia6p2pvsjjytwbox3osukqqoj57bg5bpvvfewrojva2mja"
 }

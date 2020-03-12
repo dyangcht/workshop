@@ -1,9 +1,9 @@
 {
     "compartmentId": "ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka",
     "displayName": "mkRouteTable-pub",
-    "vcnId": "ocid1.vcn.oc1.iad.amaaaaaada5axoianqz4xrbipf5vfgxrczjrxhxjgywbalv32qowxgmr5w6a",
+    "vcnId": "ocid1.vcn.oc1.iad.amaaaaaada5axoia6p2pvsjjytwbox3osukqqoj57bg5bpvvfewrojva2mja",
     "routeRules": [{
         "cidrBlock": "0.0.0.0/0",
-        "networkEntityId": "ocid1.internetgateway.oc1.iad.aaaaaaaaijrxc3bgxh6asy2qjdvhrch7pjwwgpppwoss2psk2flautavyjrq"
+        "networkEntityId": "ocid1.internetgateway.oc1.iad.aaaaaaaactmc7by2idrnj5zdqfgi3jpgxjxgjtrbqmgbzxifvo7flassektq"
     }]
 }
