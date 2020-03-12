@@ -1,0 +1,81 @@
+ctbcbank
+sys/WeLcome1_3-
+
+
+grant unlimited tablespace  to netusr;
+DROP USER loyalty cascade;
+
+CREATE USER loyalty IDENTIFIED BY "WeLcome1_3-";
+GRANT CREATE SESSION TO loyalty;
+GRANT ALL PRIVILEGES TO loyalty;
+COMMIT;
+
+reconnect to db via loyalty
+
+DROP TABLE product;
+
+CREATE TABLE product
+(	"ID"            NUMBER NOT NULL ENABLE
+   ,  "PRODUCTNAME"   VARCHAR2(255 BYTE)
+   ,  "PRODUCTPRICE"  NUMBER
+   ,  "PRODUCTIMAGE"  VARCHAR2(255 BYTE)
+   ,  "PRODUCTDESC"   VARCHAR2(255 BYTE)
+   ,  CONSTRAINT      "PRODUCT_PK" PRIMARY KEY ("ID")
+ );
+
+Insert into PRODUCT (ID,PRODUCTNAME,PRODUCTPRICE,PRODUCTIMAGE,PRODUCTDESC) values (20001,'Aroma Beans',21,'20001.jpg','Blend of incomparable Balance of sweetness, aroma and body. Composed of 50% Arabica and 50% Robusta.');
+Insert into PRODUCT (ID,PRODUCTNAME,PRODUCTPRICE,PRODUCTIMAGE,PRODUCTDESC) values (20002,'Valentine',20,'20002.jpg','Specialty coffee roasted in small batches by people who care. The specialty part means we only choose to roast top-tier, rigorously-graded, traceable coffees.');
+Insert into PRODUCT (ID,PRODUCTNAME,PRODUCTPRICE,PRODUCTIMAGE,PRODUCTDESC) values (20003,'Coffee Break',15,'20003.jpg','Celebrates the rich flavor of espresso. It is a simple drink, yet we prepare it with care. Baristas pour two espresso shots, and then quickly pour hot water over the top to produce a light layer of crema.');
+Insert into PRODUCT (ID,PRODUCTNAME,PRODUCTPRICE,PRODUCTIMAGE,PRODUCTDESC) values (20004,'Festival Blend',5,'20004.jpg','Tea x Coffee blend combining high quality Uji tea and tasty coffee beans to appear at food festival Taste of Paris');
+Insert into PRODUCT (ID,PRODUCTNAME,PRODUCTPRICE,PRODUCTIMAGE,PRODUCTDESC) values 
+(20005,'節日交融',5,'20005.jpg','茶與咖啡的混合，結合了高品質的宇治茶和美味的咖啡豆，將在巴黎美食節上亮相');
+COMMIT;
+
+GRANT CREATE SESSION to WLSOPR IDENTIFIED BY "Wel2019-Come1#";
+COMMIT;
+GRANT READ ON LOYALTY.PRODUCT TO WLSOPR;
+COMMIT;
+
+## ctbc usage
+kubectl -n sample-domain1-ns create secret generic dbsecret --from-literal=username=WLSOPR --from-literal=password='Wel2019-Come1#' --from-literal=url=jdbc:oracle:thin:@129.213.145.129:1521/PDB1.sub03040224550.dbvcn.oraclevcn.com
+
+
+allow group mike_lin to manage cluster-family in compartment workshop2:mike_lin
+allow group mike_lin to manage instance-family in compartment workshop2:mike_lin
+allow group mike_lin to manage virtual-network-family in compartment workshop2:mike_lin
+allow group mike_lin to manage volume-family in compartment workshop2:mike_lin
+allow group mike_lin to inspect compartments in tenancy
+allow group mike_lin to manage load-balancers in compartment workshop2:mike_lin
+
+
+http://150.136.132.22/opdemo/?dsname=testDatasource
+
+
+129.213.8.0/21
+129.213.16.0/20
+129.213.32.0/19
+129.213.64.0/18
+129.213.128.0/18
+129.213.192.0/20
+129.213.208.0/21
+132.145.128.0/18
+132.145.192.0/19
+150.136.0.0/16
+129.213.0.128/25
+129.213.2.128/25
+129.213.4.128/25
+130.35.16.0/22
+130.35.96.0/21
+130.35.144.0/22
+130.35.200.0/22
+134.70.24.0/21
+134.70.32.0/22
+138.1.48.0/21
+140.91.10.0/23
+140.91.12.0/22
+147.154.0.0/19
+147.154.32.0/25
+
+
+Balzano
+

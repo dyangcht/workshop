@@ -1,0 +1,14 @@
+{
+    "availabilityDomain": "ZwJq:US-ASHBURN-AD-1",
+    "compartmentId": "ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka",
+    "displayName": "mkInstance",
+    "createVnicDetails": {
+        "assignPublicIp": true,
+        "subnetId": "ocid1.subnet.oc1.iad.aaaaaaaa7f3kqzyi3ag7jvmyktpfwhbkz4m7yzmbqswwzbn2diebqk2q2l7q"
+    },
+    "sourceDetails": {
+        "sourceType": "image",
+        "imageId": "ocid1.image.oc1.iad.aaaaaaaavzjw65d6pngbghgrujb76r7zgh2s64bdl4afombrdocn4wdfrwdq"
+    },
+    "shape": "VM.Standard1.1"
+}
