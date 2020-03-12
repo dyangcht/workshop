@@ -162,7 +162,7 @@ echo -e "\033[35mCreating VCN under mike_lin...\033[0m"
 # 6. get shape name
 # oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/shapes?compartmentId=ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka"
 # 7. create a new instance
-oci-curl iaas.us-ashburn-1.oraclecloud.com post "instance.json" "/20160918/instances"
+# oci-curl iaas.us-ashburn-1.oraclecloud.com post "instance.json" "/20160918/instances"
 echo -e "\n\n\n"
 # compartment: mike_lin
 # oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/vcns?compartmentId=ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka"
