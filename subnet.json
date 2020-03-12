@@ -3,11 +3,11 @@
     "compartmentId": "ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka",
     "displayName": "mkSubnet",
     "availabilityDomain": "ZwJq:US-ASHBURN-AD-1",
-    "subnetDomainName": "mksubnet.mkvcn.oraclevcn.com",
-    "routeTableId": "ocid1.routetable.oc1.iad.aaaaaaaaattyo6m4rpbhle5rpfql3cptyh6kxxnxrez7gh2zxqekjbism3sa",
+    "dnsLabel": "mksubnet",
+    "routeTableId": "ocid1.routetable.oc1.iad.aaaaaaaajl4jvv4e22dbt2jik6zvtvcn3cgqcstd4ldlmdlzd3j7ga5hvz2a",
     "securityListIds": [
-        "ocid1.securitylist.oc1.iad.aaaaaaaahqorzejmy6axsq6w2bbpgkrdzepslawllean7dzocurkp5t5vh2q"
+        "ocid1.securitylist.oc1.iad.aaaaaaaarf4i3xuphj4flqnjm6iukodenakqjxbre4qhr34bowhcjjfyseua"
     ],
-    "dhcpOptionsId": "ocid1.dhcpoptions.oc1.iad.aaaaaaaacugrempxbffn5htngl4om2ngflgigzh7wp5o7s5w7gimurvpsgea",
-    "vcnId": "ocid1.vcn.oc1.iad.amaaaaaada5axoia6p2pvsjjytwbox3osukqqoj57bg5bpvvfewrojva2mja"
+    "dhcpOptionsId": "ocid1.dhcpoptions.oc1.iad.aaaaaaaajc4nxekc5jskkn2kedmwuaxkhnhuvfvzrf2jdupzxufmqklda2vq",
+    "vcnId": "ocid1.vcn.oc1.iad.amaaaaaada5axoia4grfdbghdthmmnp3zburlydwa54lamqcizf4h6mkzbwq"
 }

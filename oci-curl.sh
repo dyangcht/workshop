@@ -152,13 +152,13 @@ echo -e "\033[35mCreating VCN under mike_lin...\033[0m"
 # oci-curl identity.us-ashburn-1.oraclecloud.com get "/20160918/availabilityDomains?compartmentId=ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka"
 # 2. create VCN
 # oci-curl iaas.us-ashburn-1.oraclecloud.com post "vcn.json" "/20160918/vcns/"
-# 3. create subnets, if you want to create regional subnet then don't put the option "availabilityDomain"
+# 3. create a internet gateway
+# oci-curl iaas.us-ashburn-1.oraclecloud.com post "igw.json" "/20160918/internetGateways/"
+# 4. create a public route table
+# oci-curl iaas.us-ashburn-1.oraclecloud.com post "routetable.json" "/20160918/routeTables/"
+# 5. create subnets, if you want to create regional subnet then don't put the option "availabilityDomain"
 # in the subnet.json file
 # oci-curl iaas.us-ashburn-1.oraclecloud.com post "subnet.json" "/20160918/subnets/"
-# 4. create a internet gateway
-# oci-curl iaas.us-ashburn-1.oraclecloud.com post "igw.json" "/20160918/internetGateways/"
-# 5. create a public route table
-# oci-curl iaas.us-ashburn-1.oraclecloud.com post "routetable.json" "/20160918/routeTables/"
 # 6. get shape name
 # oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/shapes?compartmentId=ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka"
 # 7. create a new instance
