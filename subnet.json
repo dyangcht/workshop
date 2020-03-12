@@ -3,6 +3,7 @@
     "compartmentId": "ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka",
     "displayName": "mkSubnet",
     "availabilityDomain": "ZwJq:US-ASHBURN-AD-1",
+    "subnetDomainName": "mksubnet.mkvcn.oraclevcn.com",
     "routeTableId": "ocid1.routetable.oc1.iad.aaaaaaaaattyo6m4rpbhle5rpfql3cptyh6kxxnxrez7gh2zxqekjbism3sa",
     "securityListIds": [
         "ocid1.securitylist.oc1.iad.aaaaaaaahqorzejmy6axsq6w2bbpgkrdzepslawllean7dzocurkp5t5vh2q"
