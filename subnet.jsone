@@ -4,10 +4,10 @@
     "displayName": "mkSubnet",
     "availabilityDomain": "ZwJq:US-ASHBURN-AD-1",
     "dnsLabel": "mksubnet",
-    "routeTableId": "routetable",
+    "routeTableId": "ocid1.routetable.oc1.iad.aaaaaaaaoby2m3gym67rsyfatlmrzvm37zvdcy4m5holxfikkv3h2o6nasqq",
     "securityListIds": [
-        "securitylist"
+        "ocid1.securitylist.oc1.iad.aaaaaaaa3o2bfouo4paaa74edlf2jzq6vrjylnmbszb6ir6x2ytfg5z4n5jq"
     ],
     "dhcpOptionsId": "dhcpoptions",
-    "vcnId": "VCNID"
+    "vcnId": "ocid1.vcn.oc1.iad.amaaaaaada5axoiacawoubxaojhkj62y42afquf6ny5my2pkea23f7libf3q"
 }

@@ -151,18 +151,40 @@ echo -e "\033[35mCreating VCN under mike_lin...\033[0m"
 # 1. get availability domain first
 # oci-curl identity.us-ashburn-1.oraclecloud.com get "/20160918/availabilityDomains?compartmentId=ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka"
 # 2. create VCN
-# oci-curl iaas.us-ashburn-1.oraclecloud.com post "vcn.json" "/20160918/vcns/"
+oci-curl iaas.us-ashburn-1.oraclecloud.com post "vcn.json" "/20160918/vcns/" >vcn.out
+# get parameters
+vcnId=$(cat vcn.out | grep \"id\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
+dhcpId=$(cat vcn.out | grep \"defaultDhcpOptionsId\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
+slId=$(cat vcn.out | grep \"defaultSecurityListId\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
+
 # 3. create a internet gateway
-# oci-curl iaas.us-ashburn-1.oraclecloud.com post "igw.json" "/20160918/internetGateways/"
+sed -e 's/VCNID/'$vcnId'/g' igw.json >tmp.json
+oci-curl iaas.us-ashburn-1.oraclecloud.com post "tmp.json" "/20160918/internetGateways/" >igw.out
+# get internet gateway ID
+igwId=$(cat igw.out | grep \"id\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
+
 # 4. create a public route table
-# oci-curl iaas.us-ashburn-1.oraclecloud.com post "routetable.json" "/20160918/routeTables/"
+sed -e 's/VCNID/'$vcnId'/g' routetable.json >tmp1.json
+sed -e 's/internetgateway/'$igwId'/g' tmp1.json >tmp.json
+oci-curl iaas.us-ashburn-1.oraclecloud.com post "tmp.json" "/20160918/routeTables/" >rt.out
+# get route table ID
+rtId=$(cat rt.out | grep \"id\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
+
 # 5. create subnets, if you want to create regional subnet then don't put the option "availabilityDomain"
 # in the subnet.json file
-# oci-curl iaas.us-ashburn-1.oraclecloud.com post "subnet.json" "/20160918/subnets/"
+# replace subnet
+sed -e 's/VCNID/'$vcnId'/g' subnet.json >tmp1.json
+sed -e 's/routetable/'$rtId'/g' tmp1.json >tmp2.json
+sed -e 's/securitylist/'$slId'/g' tmp2.json >tmp1.json
+sed -e 's/dhcpoptions/'$dhcpId'/g' tmp1.json >tmp.json
+oci-curl iaas.us-ashburn-1.oraclecloud.com post "tmp.json" "/20160918/subnets/" >sub.out
+# get subnet ID
+subId=$(cat sub.out | grep \"id\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
 # 6. get shape name
 # oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/shapes?compartmentId=ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka"
 # 7. create a new instance
-oci-curl iaas.us-ashburn-1.oraclecloud.com post "instance.json" "/20160918/instances"
+sed -e 's/SUBID/'$subId'/g' instance.json >tmp.json
+oci-curl iaas.us-ashburn-1.oraclecloud.com post "tmp.json" "/20160918/instances"
 echo -e "\n\n\n"
 # compartment: mike_lin
 # oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/vcns?compartmentId=ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka"

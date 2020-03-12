@@ -1,0 +1,17 @@
+extra:  -H date: Thu, 12 Mar 2020 13:58:08 GMT -H x-content-sha256: FBc51UqaHeVJeOY/RvmpG3Es+ys0ute7ZcJxmdsMvLI= -H content-type: application/json -H content-length: 257
+{
+  "compartmentId" : "ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka",
+  "definedTags" : {
+    "Oracle-Tags" : {
+      "CreatedBy" : "mike.lin@ctbcbank.com",
+      "CreatedOn" : "2020-03-12T13:58:09.349Z"
+    }
+  },
+  "displayName" : "mkIGW",
+  "freeformTags" : { },
+  "id" : "ocid1.internetgateway.oc1.iad.aaaaaaaa742ezoi4dzkbwca5uhna4cf2seztmhiws6zsdzp7zugg7impgsca",
+  "isEnabled" : true,
+  "lifecycleState" : "AVAILABLE",
+  "timeCreated" : "2020-03-12T13:58:09.361Z",
+  "vcnId" : "ocid1.vcn.oc1.iad.amaaaaaada5axoiasfegaani6apmy7s6dcq6fdnvfgushhhkjbwshxqj3mhq"
+}

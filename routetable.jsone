@@ -1,7 +1,7 @@
 {
     "compartmentId": "ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka",
     "displayName": "mkRouteTable-pub",
-    "vcnId": "VCNID",
+    "vcnId": "ocid1.vcn.oc1.iad.amaaaaaada5axoiacawoubxaojhkj62y42afquf6ny5my2pkea23f7libf3q",
     "routeRules": [{
         "cidrBlock": "0.0.0.0/0",
         "networkEntityId": "internetgateway"
