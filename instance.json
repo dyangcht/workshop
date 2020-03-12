@@ -4,7 +4,7 @@
     "displayName": "mkInstance",
     "createVnicDetails": {
         "assignPublicIp": true,
-        "subnetId": "ocid1.subnet.oc1.iad.aaaaaaaa7f3kqzyi3ag7jvmyktpfwhbkz4m7yzmbqswwzbn2diebqk2q2l7q"
+        "subnetId": "ocid1.subnet.oc1.iad.aaaaaaaaom2xlcfpmicw3l6y5wtn7viuh2txwbwtgajd2pdg2vxx4xskvqla"
     },
     "sourceDetails": {
         "sourceType": "image",
