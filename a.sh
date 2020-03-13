@@ -1,0 +1,5 @@
+#!/bin/bash
+for id in ocid1.compartment.oc1..aaaaaaaaooghpcqfcxsu6pvcvfh5hwqfxz6unz7aelp62ol4ad5vv3hzpgoq \ ocid1.compartment.oc1..aaaaaaaagrwa6hemp2sbrkn7su336ldaacrj6kx25wohgdtkyoaz7wqzlfjq \ ocid1.compartment.oc1..aaaaaaaaqv23m772lhr66gkcc66uqf4sdofhlfusdtge23i2ubsvihir562a \ ocid1.compartment.oc1..aaaaaaaa5mcyxtlrtkfvo6xufrilmww2gw26xtfsa36vucqyodkpr6lnl6oq \ ocid1.compartment.oc1..aaaaaaaaqn4qzlyc4qwrv45bgx5k26ynygzjgpsv3dsptnhc5yxpkc47fmdq \ ocid1.compartment.oc1..aaaaaaaaihnzv2xyv4l4zvcie3epgbrvbc6246q3segypusmns6ww4ifwchq \ ocid1.compartment.oc1..aaaaaaaaim4sjwzq4mtyltamc3lsyqe2vqzqur36ljxmzlclywo2h5bbm6oq \ ocid1.compartment.oc1..aaaaaaaaq6ziupodfmqskmuywcbten6la4bv6nfwihlxsqhwsv7lycgdulwa \ ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka \ ocid1.compartment.oc1..aaaaaaaaglui3kryzahmpv4ijm7lb4zgfkvzdyc3grnn4dn5ki6n5vze5fqq \
+; do
+  echo $id;
+done
