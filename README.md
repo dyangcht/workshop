@@ -16,3 +16,5 @@ Remove the parameter "availabilityDomain" in the file "subnet.json"
 1. https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/signingrequests.htm#Python
 2. API Entry Point: https://docs.cloud.oracle.com/en-us/iaas/api/
 3. https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/20160918/
+
+# 
