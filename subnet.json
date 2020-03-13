@@ -1,9 +1,9 @@
 {
     "cidrBlock": "10.0.0.0/24",
     "compartmentId": "ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka",
-    "displayName": "mkSubnet",
+    "displayName": "wkSubnet",
     "availabilityDomain": "ZwJq:US-ASHBURN-AD-1",
-    "dnsLabel": "mksubnet",
+    "dnsLabel": "wksubnet",
     "routeTableId": "routetable",
     "securityListIds": [
         "securitylist"
