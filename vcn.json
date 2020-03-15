@@ -1,6 +1,6 @@
 {
     "cidrBlock": "10.0.0.0/16",
-    "compartmentId": "VCNID",
+    "compartmentId": "CMPTID",
     "dnsLabel": "wkvcn",
     "displayName": "wkVCN"
 }

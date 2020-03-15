@@ -11,9 +11,9 @@ function oci-curl() {
     # TODO: update these values to your own
     local tenancyId="ocid1.tenancy.oc1..aaaaaaaa6kb2n4qzopn3yuql74xyfsouotlgnhcu3faa44h4vx5il3pj6fea"
     # dyangcht - CTBC
-    # local authUserId="ocid1.user.oc1..aaaaaaaa5qcbhxlqjdqrdv54dlgdmxjbeggzl7r6y4qcoysyuo5tnpzqav7a"
+    local authUserId="ocid1.user.oc1..aaaaaaaa5qcbhxlqjdqrdv54dlgdmxjbeggzl7r6y4qcoysyuo5tnpzqav7a"
     # Mike Lin - CTBC
-    local authUserId="ocid1.user.oc1..aaaaaaaa2podbzkgjlglx3nl4ibgzff34srxw4hg3qegcibg3e7s7stmhq3q"
+    # local authUserId="ocid1.user.oc1..aaaaaaaa2podbzkgjlglx3nl4ibgzff34srxw4hg3qegcibg3e7s7stmhq3q"
     local keyFingerprint="fa:c1:e7:8d:42:93:8c:2c:10:aa:7c:e7:17:28:31:49"
     local privateKeyPath="/Users/dyangcht/.oci/umc_api_key.pem"
     # local authUserId="ocid1.user.oc1..aaaaaaaammjhusnprfgvr2zf6wew3j5budtppnxus4jod4tqfqmohnc4b7va";
@@ -155,46 +155,54 @@ for ids in $cIds; do
     # oci-curl identity.us-ashburn-1.oraclecloud.com post "request.json" "/20160918/users/"
     # echo ""
     # echo ""
-    echo -e "\033[35mCreating VCN under mike_lin...\033[0m"
+    echo -e "\033[35m1. Creating a VCN ...\033[0m"
     # 1. get availability domain first
     # oci-curl identity.us-ashburn-1.oraclecloud.com get "/20160918/availabilityDomains?compartmentId=ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka"
     # 2. create VCN
-    sed -e 's/VCNID/'$ids'/g' vcn.json >tmp.json
+    sed -e 's/CMPTID/'$ids'/g' vcn.json >tmp.json # replace the compartment id
     oci-curl iaas.us-ashburn-1.oraclecloud.com post "tmp.json" "/20160918/vcns/" >vcn.out
     # get parameters
     vcnId=$(cat vcn.out | grep \"id\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
     dhcpId=$(cat vcn.out | grep \"defaultDhcpOptionsId\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
     slId=$(cat vcn.out | grep \"defaultSecurityListId\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
 
+    echo -e "\033[35m2. Creating an Internet Gateway ...\033[0m"
     # 3. create a internet gateway
-    sed -e 's/VCNID/'$vcnId'/g' igw.json >tmp.json
+    sed -e 's/CMPTID/'$ids'/g' igw.json >tmp1.json
+    sed -e 's/VCNID/'$vcnId'/g' tmp1.json >tmp.json
     oci-curl iaas.us-ashburn-1.oraclecloud.com post "tmp.json" "/20160918/internetGateways/" >igw.out
     # get internet gateway ID
     igwId=$(cat igw.out | grep \"id\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
 
+    echo -e "\033[35m3. Creating a public route table ...\033[0m"
     # 4. create a public route table
     sed -e 's/VCNID/'$vcnId'/g' routetable.json >tmp1.json
-    sed -e 's/internetgateway/'$igwId'/g' tmp1.json >tmp.json
+    sed -e 's/internetgateway/'$igwId'/g' tmp1.json >tmp2.json
+    sed -e 's/CMPTID/'$ids'/g' tmp2.json >tmp.json
     oci-curl iaas.us-ashburn-1.oraclecloud.com post "tmp.json" "/20160918/routeTables/" >rt.out
     # get route table ID
     rtId=$(cat rt.out | grep \"id\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
 
+    echo -e "\033[35m4. Creating a public or regional subnet ...\033[0m"
     # 5. create subnets, if you want to create regional subnet then don't put the option "availabilityDomain"
     # in the subnet.json file
     # replace subnet
     sed -e 's/VCNID/'$vcnId'/g' subnet.json >tmp1.json
     sed -e 's/routetable/'$rtId'/g' tmp1.json >tmp2.json
     sed -e 's/securitylist/'$slId'/g' tmp2.json >tmp1.json
-    sed -e 's/dhcpoptions/'$dhcpId'/g' tmp1.json >tmp.json
+    sed -e 's/dhcpoptions/'$dhcpId'/g' tmp1.json >tmp2.json
+    sed -e 's/CMPTID/'$ids'/g' tmp2.json >tmp.json
     oci-curl iaas.us-ashburn-1.oraclecloud.com post "tmp.json" "/20160918/subnets/" >sub.out
     # get subnet ID
     subId=$(cat sub.out | grep \"id\" | awk '{print $3}' | awk -F, '{print $1}' | awk -F\" '{print $2}')
     # 6. get shape name
     # oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/shapes?compartmentId=ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka"
+
+    echo -e "\033[35m5. Creating an Instance ...\033[0m"
     # 7. create a new instance
-    sed -e 's/SUBID/'$subId'/g' instance.json >tmp.json
+    sed -e 's/SUBID/'$subId'/g' instance.json >tmp2.json
+    sed -e 's/CMPTID/'$ids'/g' tmp2.json >tmp.json
     oci-curl iaas.us-ashburn-1.oraclecloud.com post "tmp.json" "/20160918/instances"
-    echo -e "\n\n\n"
     # compartment: mike_lin
     # oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/vcns?compartmentId=ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka"
     # oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/users/ocid1.user.oc1..aaaaaaaammjhusnprfgvr2zf6wew3j5budtppnxus4jod4tqfqmohnc4b7va/apiKeys/"
@@ -202,8 +210,12 @@ for ids in $cIds; do
     # uu=echo $(rawurlencode "ocid1.user.oc1..aaaaaaaaelmcbbmzggwgwn6irdz3bt6duekxcdk567sbyrn5nnuqaxce2qya")
     # oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/users/${uu}/apiKeys/"
     # oci-curl containerengine.us-ashburn-1.oraclecloud.com get "/20180222/clusters/ocid1.cluster.oc1.iad.aaaaaaaaae4gcndggu3dambygnsggntbmrqwmnztmq3gmmzugcytgzbvmrsd/kubeconfig/content"
+    echo -e "sleeping 1 sec..."
+    echo -e "=============================================================================\n"
+    sleep 1
 done
 # clean up
 rm -f *.out
 rm -f tmp*
+echo -e "\033[35mCompleted...!\033[0m"
 exit 0

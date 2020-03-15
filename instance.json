@@ -1,6 +1,6 @@
 {
     "availabilityDomain": "ZwJq:US-ASHBURN-AD-1",
-    "compartmentId": "ocid1.compartment.oc1..aaaaaaaadromjyzkt6f24wdtkxhpzovrvuuqt7keenqd4bryfhpay7ikotka",
+    "compartmentId": "CMPTID",
     "displayName": "wkInstance",
     "createVnicDetails": {
         "assignPublicIp": true,
